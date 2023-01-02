@@ -1,0 +1,33 @@
+header {
+
+    text-align: center;
+}
+
+
+.card-header {
+    text-align: center;
+    margin-top: 100px;
+}
+.card-footer {
+    text-align: center;
+    margin-top: 70px;
+}
+button:hover {
+background-color: lightgreen;
+box-shadow: 0 0 8px 4px yellowgreen;
+}
+.answer {
+   margin-top: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+}
+/* .container {
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

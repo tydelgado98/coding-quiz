@@ -3,33 +3,38 @@ var timer = document.querySelector("#timer")
 
 start.addEventListener("click", startquiz)
 
-function timecount() {
-    var timeleft = 30;
-    var timeInterval = setInterval(function() {
-if (timeleft > 1) {
-    timer.textContent = "Timer: " + timeleft
-    timeleft--;
-} else { timer.textContent = " ";
-    clearInterval(timeInterval);
-}
-    }, 1000);
-}
-timecount();
-
-
-
-
-
-
-
-
 
 
 
 function startquiz() {
+
+    function timecount() {
+        var timeleft = 60;
+        var timeInterval = setInterval(function() {
+    if (timeleft > 0) {
+        timer.textContent = "Timer: " + timeleft
+        timeleft--;
+    } else { timer.textContent = " ";
+        clearInterval(timeInterval);
+    }
+        }, 1000);
+    }
+
+    timecount();
+
     console.log("hello")
 
 }
+
+
+
+
+
+
+
+
+
+
 function nextq() {
 
 }

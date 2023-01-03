@@ -34,13 +34,12 @@ body {
     background-color: white
 }
 .container {
+  position: absolute;
+  right: 800px;
     background-color: aliceblue;
-    margin-top: 100px;
     width: 200px;
     box-shadow: 0 0 14px 2px lightskyblue;
     height: 300px;
-   margin: 100px;
-   margin-left: 500px;
     border-radius: 10px;
     padding: 50px;
     font-size: 30px;
@@ -52,5 +51,25 @@ header {
   
 }
 button {
+    background-color: lightskyblue;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid lightslategray;
+    font-size: 15px;
     
+}
+button:hover {
+    background-color: white;
+    box-shadow: 0 0 14px 2px lightskyblue;
+}
+.answer {
+    display: grid;
+}
+#question {
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+#timer {
+    text-align: end;
+    font-size: 25px;
 }

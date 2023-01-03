@@ -1,8 +1,7 @@
-header {
+/* header {
 
     text-align: center;
 }
-
 
 .card-header {
     text-align: center;
@@ -22,7 +21,7 @@ box-shadow: 0 0 8px 4px yellowgreen;
    justify-content: center;
    align-items: center;
    gap: 30px;
-}
+} */
 /* .container {
     border: 2px solid black;
     height: 100px;
@@ -31,3 +30,27 @@ box-shadow: 0 0 8px 4px yellowgreen;
     justify-content: center;
     align-items: center;
 } */
+body {
+    background-color: white
+}
+.container {
+    background-color: aliceblue;
+    margin-top: 100px;
+    width: 200px;
+    box-shadow: 0 0 14px 2px lightskyblue;
+    height: 300px;
+   margin: 100px;
+   margin-left: 500px;
+    border-radius: 10px;
+    padding: 50px;
+    font-size: 30px;
+}
+header {
+   margin-left: 500px;
+
+   width: 190px;
+  
+}
+button {
+    
+}

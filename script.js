@@ -1,48 +1,76 @@
 var start = document.querySelector("#start")
 var timer = document.querySelector("#timer")
+var wins = 0
+var questioncont = document.querySelector("#question-cont")
+start.addEventListener("click", startquiz);
+var questionEl = document.querySelector("#questions")
+var answerEl = document.querySelector(".answer")
+let switchquestion
+let thisquestion
 
-start.addEventListener("click", startquiz)
 
-
-
+var score = 0;
 
 function startquiz() {
+console.log("game started")
+start.classList.add('hide')
+switchquestion = questions.sort(() => Math.random() - .5)
+thisquestion = 0
+questioncont.classList.remove('hide')
 
-    function timecount() {
-        var timeleft = 60;
-        var timeInterval = setInterval(function() {
-    if (timeleft > 0) {
-        timer.textContent = "Timer: " + timeleft
-        timeleft--;
-    } else { timer.textContent = " ";
-        clearInterval(timeInterval);
-    }
-        }, 1000);
-    }
-
-    timecount();
-
-    console.log("hello")
-
+timecount();
+function timecount() {
+    var timeleft = 60;
+    var timeInterval = setInterval(function() {
+if (timeleft > 0) {
+    timer.textContent = "Timer: " + timeleft
+    timeleft--;
+} else { timer.textContent = " ";
+    clearInterval(timeInterval);
 }
-
-
-
-
-
-
-
-
-
+    }, 1000);
+} 
+nextq();
+}
 
 function nextq() {
-
+    questionShown(switchquestion[thisquestion])
 }
 
+function questionShown(question) {
+    questionEl.textContent = question.question
+    question.answers.forEach(answer => {
+        let button = document.createElement('button')
+        
+    });
+    }
+    
+    var questions = [
+        {
+            question: "what is HTML?????",
+            answers: [
+                {text: "one", correct: true},
+                {text: "fourr", correct: false},
+                {text: "huh", correct: false},
+                {text: "derp", correct: false}
+            ]
+           
+        }
+        ];
+        
 function selanswer() {
 
 }
 
+function incorrect() {
+    console.log('be better')
+    timer -=15;
+}
+
+
+function correct() {
+    console.log("nice job")
+} 
 
 
 

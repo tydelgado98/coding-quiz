@@ -1,4 +1,5 @@
 var start = document.querySelector("#start")
+var nextButton = document.querySelector("#next")
 var timer = document.querySelector("#timer")
 var wins = 0
 var questioncont = document.querySelector("#question-cont")
@@ -7,6 +8,8 @@ var questionEl = document.querySelector("#questions")
 var answerEl = document.querySelector(".answer")
 let switchquestion
 let thisquestion
+
+
 
 
 var score = 0;
@@ -34,14 +37,22 @@ nextq();
 }
 
 function nextq() {
+    
     questionShown(switchquestion[thisquestion])
+    resetst() 
 }
 
 function questionShown(question) {
     questionEl.textContent = question.question
     question.answers.forEach(answer => {
         let button = document.createElement('button')
-        
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selanswer)
+        answerEl.appendChild(button)
     });
     }
     
@@ -57,8 +68,16 @@ function questionShown(question) {
            
         }
         ];
-        
-function selanswer() {
+       
+      function resetst() {
+        nextButton.classList.add('hide')
+        while (answerEl.firstChild) {
+            answerEl.removeChild
+            (answerEl.firstChild)
+        }
+      }  
+
+function selanswer(e) {
 
 }
 

@@ -6,10 +6,9 @@ var questioncont = document.querySelector("#question-cont")
 start.addEventListener("click", startquiz);
 var questionEl = document.querySelector("#questions")
 var answerEl = document.querySelector(".answer")
-let switchquestion
-let thisquestion
-
-
+var switchquestion
+var thisquestion
+var words = document.querySelector("#words")
 
 
 var score = 0;
@@ -17,9 +16,11 @@ var score = 0;
 function startquiz() {
 console.log("game started")
 start.classList.add('hide')
+words.classList.add('hide')
 switchquestion = questions.sort(() => Math.random() - .5)
 thisquestion = 0
 questioncont.classList.remove('hide')
+nextButton.classList.remove('hide')
 
 timecount();
 function timecount() {
@@ -28,33 +29,33 @@ function timecount() {
 if (timeleft > 0) {
     timer.textContent = "Timer: " + timeleft
     timeleft--;
-} else { timer.textContent = " ";
+} else { timer.textContent = "Times Up! ";
     clearInterval(timeInterval);
+    questioncont.classList.add('hide')
+    nextButton.classList.add('hide')
+    start.classList.remove('hide')
 }
     }, 1000);
 } 
+
 nextq();
 }
 
 function nextq() {
     
     questionShown(switchquestion[thisquestion])
-    resetst() 
+    resetst()
 }
 
 function questionShown(question) {
     questionEl.textContent = question.question
     question.answers.forEach(answer => {
-        let button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener('click', selanswer)
-        answerEl.appendChild(button)
-    });
-    }
+            if (answer.correct) {
+                button.dataset.correct = answer.correct
+            }
+            answerEl.appendChild(button)
+            }); 
+            }
     
     var questions = [
         {
@@ -64,8 +65,7 @@ function questionShown(question) {
                 {text: "fourr", correct: false},
                 {text: "huh", correct: false},
                 {text: "derp", correct: false}
-            ]
-           
+            ]  
         }
         ];
        
@@ -142,3 +142,12 @@ function correct() {
 
 
 
+// question.answers.forEach(answer => {
+//     let button = document.createElement('button')
+//     button.innerText = answer.text
+//     button.classList.add('btn')
+//     if (answer.correct) {
+//         button.dataset.correct = answer.correct
+//     }
+//     button.addEventListener('click', selanswer)
+//     answerEl.appendChild(button)

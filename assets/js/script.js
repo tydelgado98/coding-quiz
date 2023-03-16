@@ -1,13 +1,15 @@
-var start = document.getElementById('start')
+var start = document.getElementById('start');
 start.addEventListener("click", startquiz);
 document.getElementById('start').addEventListener('click', handleClick);
-var questionEl = document.getElementById('questions')
-var words = document.getElementById('words')
-var next = document.getElementById('next')
-var answerEl = document.getElementById('answers')
-var feedback = document.getElementById('feedback')
-questionEl.classList.add('hide')
-let thisquestion = 0
+var questionEl = document.getElementById('questions');
+var words = document.getElementById('words');
+var next = document.getElementById('next');
+var answerEl = document.getElementById('answers');
+var feedback = document.getElementById('feedback');
+questionEl.classList.add('hide');
+const main = document.getElementById("main");
+let store = localStorage.players ? JSON.parse(localStorage.players) : [];
+let thisquestion = 0;
 
 var time = 60;
 var clockId;
@@ -27,10 +29,28 @@ function runClock() {
     };
 
     document.getElementById('clock').innerHTML = time;
+};
 
+const handleInitial = () => {
+    let player = document.querySelector("input").value;
+    store.push({player:player, score:time});
+    store = store.sort((a,b) => b.score - a.score);
+    localStorage.players = JSON.stringify(store)
+};
+
+const endGame = () => {
+    clearInterval(clockId);
+    main.innerHTML = `
+       <h1> Done!</h1>
+      <p> your final Score is ${time}. </p>
+      <p> Enter Initials: <input id = "initials"> </p>
+      <button onclick = "handleInitial()"> Submit </button>
+    `;
 };
 
 function questionShown(index) { 
+    if(index==questions.length) return endGame();
+    
     questionEl.textContent = ''
     answerEl.textContent = ''
     questionEl.textContent = questions[index].question
